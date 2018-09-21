@@ -7,7 +7,7 @@ export default class Productos extends Component{
         const { productos, addProducto, deleteProducto } = this.props;
         return(
             <div>
-                <ProductoForm onSubmit={addProducto} />
+                {/* <ProductoForm onSubmit={addProducto} /> */}
                 <ProductoList
                     productos={productos}
                     deleteProducto={deleteProducto}

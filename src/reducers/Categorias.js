@@ -20,7 +20,8 @@ export const selectCategoria = payload => ({
 })
 
 const initialState = {
-    data: []
+    data: [],
+    selected: 'Jabones terapéuticos'
 }
 export default function reducer(state = initialState, action){
     switch(action.type){

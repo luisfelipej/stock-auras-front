@@ -7,7 +7,7 @@ export default class Categorias extends Component {
         const { categorias, addCategoria, selectCategoria } = this.props;
         return(
         <div>
-            <CategoriaForm onSubmit={addCategoria} />
+            {/* <CategoriaForm onSubmit={addCategoria} /> */}
             <CategoriaList selectCategoria={selectCategoria} categorias={categorias} />
         </div>
         )

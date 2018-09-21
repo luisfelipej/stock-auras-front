@@ -4,10 +4,24 @@ import api from './API';
 import {addCategoria, selectCategoria} from './reducers/Categorias';
 import {addProducto, deleteProducto} from './reducers/Productos'
 import { reset } from 'redux-form';
+import { Button, Grid, Card, CardContent, Dialog, DialogTitle } from '@material-ui/core';
+import { Add } from '@material-ui/icons';
 import './App.css';
 
 import Categorias from './components/Categorias';
 import Productos from './components/Productos';
+
+const styles = {
+  button: {
+    position: 'absolute',
+    right: 10,
+    bottom: 10
+  },
+  root: {
+    position: 'relative',
+    padding: '20px'
+  }
+}
 
 class App extends Component {
   constructor(props){
@@ -26,17 +40,25 @@ class App extends Component {
       selected 
     } = this.props;
     return (
-      <div className="App">
-        <Categorias
-          addCategoria={addCategoria}
-          selectCategoria={selectCategoria}
-          categorias={categorias}
-        />
-        <Productos
-          productos={productos}
-          addProducto={addProducto}
-          deleteProducto={deleteProducto}
-        />
+      <div style={styles.root} >
+        <Grid container>
+          <Grid item xs={12} lg={6}>
+            <Card>
+              <CardContent>
+                <Categorias
+                  addCategoria={addCategoria}
+                  selectCategoria={selectCategoria}
+                  categorias={categorias}
+                />
+                <Productos
+                  productos={productos}
+                  addProducto={addProducto}
+                  deleteProducto={deleteProducto}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </div>
     );
   }
@@ -68,3 +90,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+

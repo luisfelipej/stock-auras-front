@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
+import Input from './Input';
+
 class ProductoForm extends Component{
     render(){
-        const { handleSubmit } = this.props;
+        const { handleSubmit, categoria, nombre, precio } = this.props;
         return(
             <form onSubmit={handleSubmit}>
-                <Field name="categoria" component="input" placeholder="Categoria del producto" />
-                <Field name="nombre" component="input" placeholder="Nombre del producto" />
-                <Field name="precio" component="input" placeholder="Precio del prodcuto" />
+                <Field name="categoria" component={Input} placeholder={categoria} />
+                <Field name="nombre" component={Input} placeholder={nombre} />
+                <Field name="precio" component={Input} placeholder={precio} />
                 <button type="submit">Enviar</button>
             </form>
         )
